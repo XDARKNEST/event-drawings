@@ -1,37 +1,130 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tugas Drawing Art🎨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drawing Art Informasi Tugas</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Banner Gambar 1:1 -->
-  <div class="banner">
-    <img src="https://i.ibb.co.com/pvjdbj8x/b99b71d53cd38ff5a3bbeb9ec83880a3-1.jpg" alt="Event Banner" loading="lazy">
+
+<canvas id="particleCanvas"></canvas>
+
+<header>
+<button class="dark-toggle" id="darkToggle">Dark Mode</button>
+<h1>Drawing Art Community</h1>
+<p>Portal resmi informasi tugas dan hasil karya terbaik</p>
+
+<div class="countdown" id="countdown">⏳ Loading deadline...</div>
+<div class="countdown" id="nextCountdown">📅 Loading tugas selanjutnya...</div>
+
+<div class="ref-preview">
+<img src="https://i.ibb.co/chZz6NQw/de6990746352b65ab6213ee2deeb6a47.gif">
+</div>
+</header>
+
+<main class="container">
+
+<section class="card">
+<h2>Informasi Tugas</h2>
+<div class="info-grid">
+<div class="info-item"><strong>Tugas:</strong> Gambar Karakter Waifu / Husbu</div>
+<div class="info-item"><strong>Tema:</strong> Waifu / Husbu</div>
+<div class="info-item"><strong>Teknik:</strong> Tradi / Digital</div>
+<div class="info-item"><strong>Format:</strong> COLORING / BNW</div>
+<div class="info-item"><strong>Pengumpulan:</strong> Grup Kumpul Tugas</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Juara Terbaik Minggu Ini</h2>
+<div class="winners" id="winnersContainer">
+  <div class="winner">
+    <img src="https://i.ibb.co/xSnvhFDs/IMG-20260104-104137.jpg">
+    <div class="winner-body">
+      <h3>Juara 1</h3>
+      <span class="badge gold">Juara 1</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/xSnvhFDs/IMG-20260104-104137.jpg">Full View</button>
+    </div>
   </div>
-
-  <h1>Event Drawing 🎨</h1>
-  <p>Event Menggambar Karakter Di Atas, Foto Hanya Sebagai Contoh Refrensi</p>
-  <p>Tunjukkan karya terbaikmu! Event terbuka untuk semua seniman — karya <b>tradisional</b> dan <b>digital</b> diterima.</p>
-
-  <div class="info-box">
-    <p>📅 <b>Tanggal Event:</b> Setiap Minggu atau dua minggu sekali</p>
-    <p>⏰ <b>Waktu:</b> 7 Desember – 21 Desember</p>
-    <p>ℹ️ <b>informasi:</b> awal tugas 7 Desember – 14 Desember admin tambahkan deadline waktu jadi 21 Desember (1minggu)</p>
-    <p>📍 <b>Lokasi Pengumpulan:</b> Grup Kumpul Tugas</p>
-    <p>⚠️ <b>Peringatan:</b> Setiap Mengumpulkan Tugas Silahkan Menambahkan WM (Watermark) Agar Tidak Di Curi Oleh Pihak Yang Tidak Bertanggung Jawab</p>
-    <p>ℹ️ <b>Informasi:</b> Hasil Gambar Kalian Semua Bakal Mimin Simpan Dan Di Gunakan Untuk Promosi Grup Di lain Waktu🙏🏻</p>
+  <div class="winner">
+    <img src="https://i.ibb.co/NgcKV7HJ/IMG-20260104-104211.jpg">
+    <div class="winner-body">
+      <h3>Juara 2</h3>
+      <span class="badge silver">Juara 2</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/NgcKV7HJ/IMG-20260104-104211.jpg">Full View</button>
+    </div>
   </div>
+  <div class="winner">
+    <img src="https://i.ibb.co/SwP9SRL7/IMG-20260104-104245.jpg">
+    <div class="winner-body">
+      <h3>Juara 3</h3>
+      <span class="badge bronze">Juara 3</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/SwP9SRL7/IMG-20260104-104245.jpg">Full View</button>
+    </div>
+  </div>
+</div>
+</section>
 
-  <!-- Tombol -->
-  <a href="https://chat.whatsapp.com/EpwPHZfdHlsDTZ9p01U8oy?mode=wwt" class="btn btn-group">💬 Gabung Grup WhatsApp</a>
-  <a href="https://chat.whatsapp.com/JNfiv6pCjBX3A380Y9ckot?mode=hqrt3" class="btn btn-group">🖼️ Gabung Grup Kumpul Tugas</a>
-  <a href="https://www.tiktok.com/@lenz_z?_t=ZS-90u6qMiZv9E&_r=1" class="btn btn-tiktok">🎥 TikTok Utama Admin</a>
-  <a href="https://www.instagram.com/restu_xyo?igsh=dGtuY2o2dzljN2Ru" class="btn btn-instagram">📸 Instagram Utama Admin</a>
+<section class="card">
+<h2>Juara Digital Terbaik Minggu Ini</h2>
+<div class="winners" id="digitalWinnersContainer">
+  <div class="winner">
+    <img src="https://i.ibb.co/MkYzwLLc/IMG-20260104-113117.jpg">
+    <div class="winner-body">
+      <h3>Juara 1 Digital</h3>
+      <span class="badge gold">Juara 1 Digital</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/MkYzwLLc/IMG-20260104-113117.jpg">Full View</button>
+    </div>
+  </div>
+  <div class="winner">
+    <img src="https://i.ibb.co/5W5f57Ls/IMG-20260104-113052.jpg">
+    <div class="winner-body">
+      <h3>Juara 2 Digital</h3>
+      <span class="badge silver">Juara 2 Digital</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/5W5f57Ls/IMG-20260104-113052.jpg">Full View</button>
+    </div>
+  </div>
+  <div class="winner">
+    <img src="https://i.ibb.co/VpY9hYTM/IMG-20260104-113132.jpg">
+    <div class="winner-body">
+      <h3>Juara 3 Digital</h3>
+      <span class="badge bronze">Juara 3 Digital</span><br>
+      <button class="fullview-btn" data-img="https://i.ibb.co/VpY9hYTM/IMG-20260104-113132.jpg">Full View</button>
+    </div>
+  </div>
+</div>
+</section>
 
-  <footer>© 2025 Drawing Art Community</footer>
+<section class="card">
+<h2>Saran Tugas</h2>
+<form id="suggestionForm">
+  <input type="text" id="suggestionInput" placeholder="Masukkan saran tugas..." required>
+  <button type="submit">Kirim</button>
+</form>
+<ul id="suggestionList"></ul>
+</section>
+
+</main>
+
+<footer>© 2025 Drawing Assignment Portal</footer>
+
+<div class="modal" id="imageModal"><img id="modalImg"></div>
+
+<div class="music-player">
+🎵
+<button id="musicBtn">Play Music</button>
+<input type="range" id="volumeSlider" min="0" max="1" step="0.01">
+<audio id="bgMusic" loop>
+  <source src="Michishirube.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
