@@ -1,4 +1,4 @@
-/* ---------------- DARK MODE ---------------- */
+/* DARK MODE */
 const darkToggle=document.getElementById("darkToggle");
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
@@ -10,7 +10,7 @@ darkToggle.onclick=()=>{
   darkToggle.textContent=document.body.classList.contains("dark")?"Light Mode":"Dark Mode";
 };
 
-/* ---------------- FULL VIEW ---------------- */
+/* FULL VIEW */
 const modal=document.getElementById("imageModal");
 const modalImg=document.getElementById("modalImg");
 document.querySelectorAll(".fullview-btn").forEach(b=>{
@@ -18,7 +18,7 @@ document.querySelectorAll(".fullview-btn").forEach(b=>{
 });
 modal.onclick=e=>{if(e.target===modal)modal.style.display="none";}
 
-/* ---------------- MUSIC ---------------- */
+/* MUSIC */
 const music=document.getElementById("bgMusic");
 const musicBtn=document.getElementById("musicBtn");
 const volumeSlider=document.getElementById("volumeSlider");
@@ -31,7 +31,7 @@ musicBtn.onclick=()=>{
 };
 volumeSlider.oninput=()=>{music.volume=volumeSlider.value; localStorage.setItem("volume",volumeSlider.value);};
 
-/* ---------------- COUNTDOWN ---------------- */
+/* COUNTDOWN DETAIL */
 const deadline=new Date("2026-01-04 00:00:00").getTime();
 const nextDeadline=new Date("2026-01-12 00:00:00").getTime();
 setInterval(()=>{
@@ -49,7 +49,7 @@ setInterval(()=>{
   document.getElementById("nextCountdown").innerHTML=d2<=0?"🎉 Tugas Baru Telah Dibuka!":`📅 Tugas Selanjutnya: ${format(d2)}`;
 },1000);
 
-/* ---------------- SECURITY ---------------- */
+/* SECURITY */
 document.addEventListener("contextmenu",e=>e.preventDefault());
 document.addEventListener("keydown",e=>{
   if(e.key==="F12"||(e.ctrlKey&&e.shiftKey)||e.ctrlKey&&e.key==="u"){
@@ -58,7 +58,7 @@ document.addEventListener("keydown",e=>{
 });
 document.querySelectorAll("img").forEach(i=>i.draggable=false);
 
-/* ---------------- PARTICLE EFFECT ---------------- */
+/* PARTICLE EFFECT */
 const canvas=document.getElementById("particleCanvas");
 const ctx=canvas.getContext("2d");
 function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
@@ -89,40 +89,3 @@ for(let i=0;i<80;i++){
   });
   requestAnimationFrame(animate);
 })();
-
-/* ---------------- FIREBASE ---------------- */
-const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://PROJECT_ID.firebaseio.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-/* ---------------- SUGGESTION TASK ---------------- */
-const suggestionForm = document.getElementById("suggestionForm");
-const suggestionInput = document.getElementById("suggestionInput");
-const suggestionList = document.getElementById("suggestionList");
-
-suggestionForm.addEventListener("submit", e=>{
-  e.preventDefault();
-  const value = suggestionInput.value.trim();
-  if(value!==""){
-    const newRef = db.ref("suggestions").push();
-    newRef.set({text:value});
-    suggestionInput.value="";
-  }
-});
-
-db.ref("suggestions").on("value", snapshot=>{
-  suggestionList.innerHTML="";
-  snapshot.forEach(child=>{
-    const li = document.createElement("li");
-    li.textContent = child.val().text;
-    suggestionList.appendChild(li);
-  });
-});
