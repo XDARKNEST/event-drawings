@@ -9,4 +9,219 @@
   --shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
-/* ... seluruh CSS lainnya tetap sama ... */
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Segoe UI,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* PARTICLE */
+#particleCanvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+header, main, footer, .modal{
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:#fff;
+  padding:70px 20px 50px;
+  text-align:center;
+}
+
+header h1{
+  font-size:2.6rem;
+  margin-bottom:10px
+}
+
+header p{
+  opacity:.95;
+  margin-bottom:15px
+}
+
+.dark-toggle{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  border:none;
+  padding:10px 16px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.countdown{
+  display:inline-block;
+  background:rgba(0,0,0,.35);
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:600;
+  margin:8px;
+}
+
+.ref-preview img{
+  width:420px;
+  max-width:100%;
+  border-radius:18px;
+}
+
+/* MUSIC PLAYER */
+.music-player{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:6;
+  background:rgba(79,70,229,.9);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+}
+
+.music-player button{
+  background:#fff;
+  color:#4f46e5;
+  border:none;
+  padding:6px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.music-player input[type="range"]{
+  width:80px;
+  cursor:pointer;
+}
+
+/* CONTENT */
+.container{
+  max-width:1200px;
+  margin:20px auto 60px;
+  padding:0 20px;
+  display:grid;
+  gap:30px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+
+.info-item{
+  background:#f9fafb;
+  padding:16px;
+  border-radius:12px;
+  border-left:4px solid var(--primary);
+}
+
+.winners{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.winner{
+  background:#f9fafb;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.winner img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.winner-body{
+  padding:18px;
+  text-align:center;
+}
+
+.fullview-btn{
+  margin-top:12px;
+  padding:10px 18px;
+  border:none;
+  border-radius:999px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.badge{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 14px;
+  border-radius:20px;
+  color:#fff;
+  font-size:.85rem;
+  font-weight:600;
+}
+
+.gold{
+  background:#facc15;
+  color:#1f2937
+}
+
+.silver{
+  background:#9ca3af
+}
+
+.bronze{
+  background:#d97706
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#6b7280;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:18px;
+}
+
+/* DARK MODE */
+body.dark{
+  --bg:#0b0b12;
+  --card:#141422;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  }
