@@ -33,7 +33,7 @@ volumeSlider.oninput=()=>{music.volume=volumeSlider.value; localStorage.setItem(
 
 /* COUNTDOWN DETAIL */
 const deadline=new Date("2026-01-04 00:00:00").getTime();
-const nextDeadline=new Date("2026-01-15 10:00:00").getTime();
+const nextDeadline=new Date("2026-01-04 00:00:00").getTime();
 setInterval(()=>{
   const now=new Date().getTime();
   const d1=deadline-now;
