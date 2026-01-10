@@ -32,8 +32,8 @@ musicBtn.onclick=()=>{
 volumeSlider.oninput=()=>{music.volume=volumeSlider.value; localStorage.setItem("volume",volumeSlider.value);};
 
 /* COUNTDOWN DETAIL */
-const deadline=new Date("2026-01-04 00:00:00").getTime();
-const nextDeadline=new Date("2026-01-01 00:00:00").getTime();
+const deadline=new Date("2026-01-17 00:00:00").getTime();
+const nextDeadline = new Date(2026, 0, 11, 8, 0, 0).getTime();
 setInterval(()=>{
   const now=new Date().getTime();
   const d1=deadline-now;
