@@ -34,31 +34,63 @@ modal.onclick=e=>{
   if(e.target===modal) modal.style.display="none";
 };
 
-/* MUSIC */
-const music=document.getElementById("bgMusic");
-const musicBtn=document.getElementById("musicBtn");
-const volumeSlider=document.getElementById("volumeSlider");
-music.volume=localStorage.getItem("volume")?parseFloat(localStorage.getItem("volume")):0.5;
-volumeSlider.value=music.volume;
-if(localStorage.getItem("music")==="play"){
+/* MUSIC PLAYLIST */
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+
+const playlist = [
+  "dj so asu.mp3",
+  "Michishirube.mp3",
+  "lagu3.mp3"
+];
+
+let currentTrack = localStorage.getItem("track")
+  ? parseInt(localStorage.getItem("track"))
+  : 0;
+
+music.src = playlist[currentTrack];
+
+/* volume */
+music.volume = localStorage.getItem("volume")
+  ? parseFloat(localStorage.getItem("volume"))
+  : 0.5;
+volumeSlider.value = music.volume;
+
+/* auto play jika sebelumnya play */
+if (localStorage.getItem("music") === "play") {
   music.play().catch(()=>{});
-  musicBtn.textContent="Pause Music";
+  musicBtn.textContent = "Pause Music";
 }
-musicBtn.onclick=()=>{
-  if(music.paused){
+
+/* tombol play / pause */
+musicBtn.onclick = () => {
+  if (music.paused) {
     music.play();
-    musicBtn.textContent="Pause Music";
-    localStorage.setItem("music","play");
-  }else{
+    musicBtn.textContent = "Pause Music";
+    localStorage.setItem("music", "play");
+  } else {
     music.pause();
-    musicBtn.textContent="Play Music";
-    localStorage.setItem("music","pause");
+    musicBtn.textContent = "Play Music";
+    localStorage.setItem("music", "pause");
   }
 };
-volumeSlider.oninput=()=>{
-  music.volume=volumeSlider.value;
-  localStorage.setItem("volume",volumeSlider.value);
+
+/* volume slider */
+volumeSlider.oninput = () => {
+  music.volume = volumeSlider.value;
+  localStorage.setItem("volume", volumeSlider.value);
 };
+
+/* AUTO LANJUT LAGU */
+music.addEventListener("ended", () => {
+  currentTrack++;
+  if (currentTrack >= playlist.length) currentTrack = 0;
+
+  localStorage.setItem("track", currentTrack);
+  music.src = playlist[currentTrack];
+  music.play();
+});
 
 /* COUNTDOWN */
 const deadline = new Date(2026, 0, 18, 12, 0, 0).getTime();
