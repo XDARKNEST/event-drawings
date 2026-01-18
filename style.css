@@ -224,4 +224,29 @@ body.dark{
   --card:#141422;
   --text:#e5e7eb;
   --muted:#9ca3af;
-  }
+}
+
+/* ============================= */
+/* ALBUM APRESIASI MEMBER (BARU) */
+/* ============================= */
+
+.album{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+  gap:14px;
+}
+
+.album-img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+.album-img:hover{
+  transform:scale(1.08);
+  box-shadow:0 12px 24px rgba(0,0,0,.25);
+}
