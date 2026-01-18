@@ -121,7 +121,7 @@ for(let i=0;i<80;i++){
     if(p.y<0||p.y>canvas.height)p.vy*=-1;
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(255,255,255,${p.o})`;
+    ctx.fillStyle = `rgba(79,70,229,${p.o})`;
     ctx.fill();
   });
   requestAnimationFrame(animate);
